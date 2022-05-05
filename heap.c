@@ -17,9 +17,8 @@ typedef struct Heap{
 } Heap;
 
 void resizeHeap(Heap* pq){
-  pq->heapArray = (heapElem *)realloc(pq->heapArray, sizeof(heapElem)*((pq->capac*2)+1));
-  if (pq->heapArray == NULL) exit(1);
   pq->capac = (pq->capac*2)+1;
+  pq->heapArray = realloc(pq->heapArray, pq->capac);
 }
 
 void* heap_top(Heap* pq){
@@ -34,6 +33,7 @@ void heap_push(Heap* pq, void* data, int priority){
   if (pq->size == pq->capac){
     resizeHeap (pq);
   }
+
   
 }
 
