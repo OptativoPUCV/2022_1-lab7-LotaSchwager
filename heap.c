@@ -16,7 +16,7 @@ typedef struct Heap{
   int capac;
 } Heap;
 
-void Intercambia(Heap h, int i1, int i2) {
+void Intercambia(Heap* h, int i1, int i2) {
     int aux = h->heapArray[i1].priority;
     void* data = h->heapArray[i1].data;
   
@@ -27,11 +27,11 @@ void Intercambia(Heap h, int i1, int i2) {
   h->heapArray[i2].data = data;
 }
 
-int father(Heap h, int i) {
+int father(Heap* h, int i) {
     return (i-1)/2;
 }
 
-void subir(Heap h, int i) {
+void subir(Heap* h, int i) {
     int padre;
 
     while(i > 0 && h->heapArray[i].priority > h->heapArray[padre=father(h, i)].priority) {
