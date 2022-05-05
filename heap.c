@@ -45,7 +45,7 @@ void subir(Heap* h, int i) {
 
     while(i > 0) 
     {
-      if (arreglo[i]->priority > arreglo[padre=father(h, i)]->priority){
+      if (arreglo[i].priority > arreglo[padre=father(h, i)].priority){
         Intercambia(h, i, padre);
         i = padre;
       }
