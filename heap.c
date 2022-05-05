@@ -16,6 +16,11 @@ typedef struct Heap{
   int capac;
 } Heap;
 
+void* resizeHeap(Heap* pq){
+  pq->heapArray = (heapElem *)realloc(pq->heapArray, sizeof(heapElem)*((pq->capac*2)+1));
+  if (pq->headArray == NULL) return;
+  pq->capac = (pq->capac*2)+1;
+}
 
 void* heap_top(Heap* pq){
   if (pq->size == 0 || pq == NULL) return NULL;
@@ -25,10 +30,11 @@ void* heap_top(Heap* pq){
   return pq->heapArray[0].data;
 }
 
-
-
 void heap_push(Heap* pq, void* data, int priority){
-
+  if (pq->size == pq->capac){
+    resizeHeap (pq);
+  }
+  
 }
 
 
