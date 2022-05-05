@@ -388,3 +388,9 @@ heap.c:34:6: note: declared here
 cc1: all warnings being treated as errors
 Compilation failed
 3880735
+Thu May  5 03:53:11 UTC 2022: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  6|2
+total_score: 50/70
+2ad1dab
