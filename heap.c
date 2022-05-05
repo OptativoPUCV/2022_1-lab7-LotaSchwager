@@ -27,11 +27,11 @@ void intercambia(Heap* h, int i1, int i2) {
   h->heapArray[i2].data = data;
 }
 
-int Izquierdo(Heap* h, int i) {
+int left(Heap* h, int i) {
     return 2*i+1;
 }
 
-int Derecho(Heap* h, int i) {
+int right(Heap* h, int i) {
     return 2*i+2;
 }
 
@@ -39,7 +39,22 @@ int father(Heap* h, int i) {
     return (i-1)/2;
 }
 
-void subir(Heap* h, int i) {
+void down(Heap* h, int i){
+    int iIzq, iDer, maximo;
+    heapElem* arreglo = h->heapArray;
+
+    maximo = i;
+    do{
+        i = maximo;
+        iIzq=left(h, i);
+        iDer=right(h, i);
+        if(arreglo[i].priority < arreglo[iIzq].priority && arreglo[iDer].priority < arreglo[iIzq].priority) maximo = iIzq;
+        if(arreglo[i].priority < arreglo[iDer].priority && arreglo[iIzq].priority < arreglo[iDer].priority) maximo = iDer;
+        if(i != maximo) intercambia(h, i, maximo);
+    } while (i != maximo && maximo < h->size/2);
+}
+
+void up(Heap* h, int i) {
     int padre;
     heapElem* arreglo = h->heapArray;
 
@@ -73,45 +88,19 @@ void heap_push(Heap* pq, void* data, int priority){
     resizeHeap (pq);
   }
 
-  if (priority < 0 ) pq->heapArray[2].priority = 9;
-
   pq->heapArray[pq->size].priority = priority;
   pq->heapArray[pq->size].data = data;
-  subir (pq, pq->size);
+  up (pq, pq->size);
   pq->size++;
 }
 
 void heap_pop(Heap* pq){
-  if (pq->size == 0 || pq == NULL) return;
-
-  if (pq->heapArray == NULL) return;
-
   pq->heapArray[0].data = pq->heapArray[pq->size-1].data;
   pq->heapArray[0].priority = pq->heapArray[pq->size-1].priority;
   pq->heapArray[pq->size-1].data = NULL;
   pq->heapArray[pq->size-1].data = 0;
+  down(pq, 0);
   pq->size--;
-
-  if (pq->heapArray[1].priority > pq->heapArray[2].priority){
-    void* data = pq->heapArray[0].data;
-    int prioridad = pq->heapArray[0].priority;
-
-    pq->heapArray[0].priority = pq->heapArray[1].priority;
-    pq->heapArray[0].data = pq->heapArray[1].data;
-
-    pq->heapArray[1].priority = prioridad;
-    pq->heapArray[1].data = data;
-  }
-  else{   
-    void* data = pq->heapArray[0].data;
-    int prioridad = pq->heapArray[0].priority;
-
-    pq->heapArray[0].priority = pq->heapArray[2].priority;
-    pq->heapArray[0].data = pq->heapArray[2].data;
-
-    pq->heapArray[2].priority = prioridad;
-    pq->heapArray[2].data = data;
-  }
 }
 
 Heap* createHeap(){
