@@ -41,5 +41,7 @@ Heap* createHeap(){
   kurisu->size = 0;
   kurisu->capac = 3;
 
+  if (kurisu->heapArray == NULL) return NULL;
+
    return kurisu;
 }
