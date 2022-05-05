@@ -31,7 +31,7 @@ int father(Heap h, int i) {
     return (i-1)/2;
 }
 
-void Subir(Heap h, int i) {
+void subir(Heap h, int i) {
     int padre;
 
     while(i > 0 && h->heapArray[i].priority > h->heapArray[padre=father(h, i)].priority) {

@@ -266,3 +266,48 @@ heap.c:62:3: error: implicit declaration of function ‘subir’; did you mean �
 cc1: all warnings being treated as errors
 Compilation failed
 d5e0fb2
+Thu May  5 03:33:46 UTC 2022: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:0:
+heap.c: In function ‘Intercambia’:
+heap.c:20:16: error: invalid type argument of ‘->’ (have ‘Heap {aka struct Heap}’)
+     int aux = h->heapArray[i1].priority;
+                ^~
+heap.c:21:19: error: invalid type argument of ‘->’ (have ‘Heap {aka struct Heap}’)
+     void* data = h->heapArray[i1].data;
+                   ^~
+heap.c:23:6: error: invalid type argument of ‘->’ (have ‘Heap {aka struct Heap}’)
+     h->heapArray[i1].priority = h->heapArray[i2].priority;
+      ^~
+heap.c:23:34: error: invalid type argument of ‘->’ (have ‘Heap {aka struct Heap}’)
+     h->heapArray[i1].priority = h->heapArray[i2].priority;
+                                  ^~
+heap.c:24:5: error: invalid type argument of ‘->’ (have ‘Heap {aka struct Heap}’)
+    h->heapArray[i1].data = h->heapArray[i2].data;
+     ^~
+heap.c:24:29: error: invalid type argument of ‘->’ (have ‘Heap {aka struct Heap}’)
+    h->heapArray[i1].data = h->heapArray[i2].data;
+                             ^~
+heap.c:26:6: error: invalid type argument of ‘->’ (have ‘Heap {aka struct Heap}’)
+     h->heapArray[i2].priority = aux;
+      ^~
+heap.c:27:4: error: invalid type argument of ‘->’ (have ‘Heap {aka struct Heap}’)
+   h->heapArray[i2].data = data;
+    ^~
+heap.c: In function ‘subir’:
+heap.c:37:21: error: invalid type argument of ‘->’ (have ‘Heap {aka struct Heap}’)
+     while(i > 0 && h->heapArray[i].priority > h->heapArray[padre=father(h, i)].priority) {
+                     ^~
+heap.c:37:48: error: invalid type argument of ‘->’ (have ‘Heap {aka struct Heap}’)
+     while(i > 0 && h->heapArray[i].priority > h->heapArray[padre=father(h, i)].priority) {
+                                                ^~
+heap.c: In function ‘heap_push’:
+heap.c:62:10: error: incompatible type for argument 1 of ‘subir’
+   subir (pq, priority);
+          ^~
+heap.c:34:6: note: expected ‘Heap {aka struct Heap}’ but argument is of type ‘Heap * {aka struct Heap *}’
+ void subir(Heap h, int i) {
+      ^~~~~
+Compilation failed
+966643b
