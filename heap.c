@@ -18,7 +18,7 @@ typedef struct Heap{
 
 void* resizeHeap(Heap* pq){
   pq->heapArray = (heapElem *)realloc(pq->heapArray, sizeof(heapElem)*((pq->capac*2)+1));
-  if (pq->headArray == NULL) exit(1);
+  if (pq->heapArray == NULL) exit(1);
   pq->capac = (pq->capac*2)+1;
 }
 
