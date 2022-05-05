@@ -49,7 +49,7 @@ void down(Heap* h, int i){
         iIzq=left(h, i);
         iDer=right(h, i);
         if(arreglo[i].priority < arreglo[iIzq].priority && arreglo[iDer].priority < arreglo[iIzq].priority) maximo = iIzq;
-        if(arreglo[i].priority < arreglo[iDer].priority && arreglo[iIzq].priority < arreglo[iDer].priority) maximo = iDer;
+        //if(arreglo[i].priority < arreglo[iDer].priority && arreglo[iIzq].priority < arreglo[iDer].priority) maximo = iDer;
         if(i != maximo) intercambia(h, i, maximo);
     } while (i != maximo && maximo < h->size/2);
 }
