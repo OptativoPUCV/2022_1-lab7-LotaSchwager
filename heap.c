@@ -33,7 +33,37 @@ void heap_push(Heap* pq, void* data, int priority){
 
 
 void heap_pop(Heap* pq){
+  if (pq->size == 0 || pq == NULL) return;
 
+  if (pq->heapArray == NULL) return;
+
+  pq->heapArray[0].data = pq->heapArray[pq->size-1].data;
+  pq->heapArray[0].priority = pq->heapArray[pq->size-1].priority;
+  pq->heapArray[pq->size-1] = NULL;
+  pq->size--;
+
+  if (pq->heapArray[1].priority > pq->heapArray[2].priority){
+
+    void* data = pq->heapArray[0].data;
+    int prioridad = pq->heapArray[0].priority;
+
+    pq->heapArray[0].priority = pq->heapArray[1].priority;
+    pq->heapArray[0].data = pq->heapArray[1].data;
+
+    pq->heapArray[1].priority = prioridad;
+    pq->heapArray[1].data = data;
+  }
+  else{
+
+    void* data = pq->heapArray[0].data;
+    int prioridad = pq->heapArray[0].priority;
+
+    pq->heapArray[0].priority = pq->heapArray[2].priority;
+    pq->heapArray[0].data = pq->heapArray[2].data;
+
+    pq->heapArray[2].priority = prioridad;
+    pq->heapArray[2].data = data;
+  }
 }
 
 Heap* createHeap(){
