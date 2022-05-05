@@ -16,6 +16,30 @@ typedef struct Heap{
   int capac;
 } Heap;
 
+void Intercambia(Heap h, int i1, int i2) {
+    int aux = h->heapArray[i1].priority;
+    void* data = h->heapArray[i1].data;
+  
+    h->heapArray[i1].priority = h->heapArray[i2].priority;
+   h->heapArray[i1].data = h->heapArray[i2].data;
+  
+    h->heapArray[i2].priority = aux;
+  h->heapArray[i2].data = data;
+}
+
+int father(Heap h, int i) {
+    return (i-1)/2;
+}
+
+void Subir(Heap h, int i) {
+    int padre;
+
+    while(i > 0 && h->heapArray[i].priority > h->heapArray[padre=father(h, i)].priority) {
+        Intercambia(h, i, padre);
+        i = padre;
+    }
+}
+
 void resizeHeap(Heap* pq){
   pq->capac = (pq->capac*2)+1;
   pq->heapArray = realloc(pq->heapArray, pq->capac);
@@ -34,7 +58,8 @@ void heap_push(Heap* pq, void* data, int priority){
     resizeHeap (pq);
   }
 
-  
+  pq->heapArray[pq->size].priority = priority;
+  subir (pq, priority);
 }
 
 void heap_pop(Heap* pq){
