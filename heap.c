@@ -39,7 +39,7 @@ Heap* createHeap(){
 
   kurisu->heapArray = (heapElem *) malloc (sizeof(heapElem));
   kurisu->size = 0;
-  kurisu->capac = 0;
+  kurisu->capac = 3;
 
    return kurisu;
 }
