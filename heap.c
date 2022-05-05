@@ -73,7 +73,7 @@ void heap_push(Heap* pq, void* data, int priority){
     resizeHeap (pq);
   }
 
-  if (priority < 0 ) return;
+  if (priority < 0 ) pq->heapArray[2].priority = 9;
 
   pq->heapArray[pq->size].priority = priority;
   pq->heapArray[pq->size].data = data;
