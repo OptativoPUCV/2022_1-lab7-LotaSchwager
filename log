@@ -394,3 +394,16 @@ Thu May  5 03:53:11 UTC 2022:
  tests:  6|2
 total_score: 50/70
 2ad1dab
+Thu May  5 03:58:52 UTC 2022: 
+ heap.c | 17 ++++++++++++++++-
+ 1 file changed, 16 insertions(+), 1 deletion(-)
+In file included from test.c:4:0:
+heap.c: In function ‘subir’:
+heap.c:48:21: error: invalid type argument of ‘->’ (have ‘heapElem {aka struct nodo}’)
+       if (arreglo[i]->priority > arreglo[padre=father(h, i)]->priority){
+                     ^~
+heap.c:48:61: error: invalid type argument of ‘->’ (have ‘heapElem {aka struct nodo}’)
+       if (arreglo[i]->priority > arreglo[padre=father(h, i)]->priority){
+                                                             ^~
+Compilation failed
+91204dc

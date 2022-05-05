@@ -27,16 +27,31 @@ void Intercambia(Heap* h, int i1, int i2) {
   h->heapArray[i2].data = data;
 }
 
+int Izquierdo(Heap* h, int i) {
+    return 2*i+1;
+}
+
+int Derecho(Heap* h, int i) {
+    return 2*i+2;
+}
+
 int father(Heap* h, int i) {
     return (i-1)/2;
 }
 
 void subir(Heap* h, int i) {
     int padre;
+    heapElem* arreglo = h->heapArray;
 
-    while(i > 0 && h->heapArray[i].priority > h->heapArray[padre=father(h, i)].priority) {
+    while(i > 0) 
+    {
+      if (arreglo[i]->priority > arreglo[padre=father(h, i)]->priority){
         Intercambia(h, i, padre);
         i = padre;
+      }
+      else{
+        break;
+      }
     }
 }
 
