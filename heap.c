@@ -19,12 +19,10 @@ typedef struct Heap{
 
 void* heap_top(Heap* pq){
   if (pq == NULL) return NULL;
-  
-  heapElem *dato = pq->heapArray;
 
-  if (dato == NULL) return NULL;
+  if (pq->hearArray == NULL) return NULL;
   
-  return dato[0].data;
+  return pq->hearArray[0].data;
 }
 
 

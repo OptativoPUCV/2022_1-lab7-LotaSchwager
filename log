@@ -46,3 +46,22 @@ Thu May  5 01:01:45 UTC 2022:
  tests:  1|3
 total_score: 10/70
 9d8dda7
+Thu May  5 01:03:05 UTC 2022: 
+ heap.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+In file included from test.c:4:0:
+heap.c: In function ‘heap_top’:
+heap.c:23:11: error: ‘Heap {aka struct Heap}’ has no member named ‘hearArray’; did you mean ‘heapArray’?
+   if (pq->hearArray == NULL) return NULL;
+           ^~~~~~~~~
+           heapArray
+heap.c:25:14: error: ‘Heap {aka struct Heap}’ has no member named ‘hearArray’; did you mean ‘heapArray’?
+   return pq->hearArray[0].data;
+              ^~~~~~~~~
+              heapArray
+heap.c:26:1: error: control reaches end of non-void function [-Werror=return-type]
+ }
+ ^
+cc1: all warnings being treated as errors
+Compilation failed
+958b1eb
