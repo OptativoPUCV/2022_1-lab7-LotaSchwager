@@ -16,7 +16,7 @@ typedef struct Heap{
   int capac;
 } Heap;
 
-void Intercambia(Heap* h, int i1, int i2) {
+void intercambia(Heap* h, int i1, int i2) {
   int aux = h->heapArray[i1].priority;
   void* data = h->heapArray[i1].data;   
   
@@ -46,7 +46,7 @@ void subir(Heap* h, int i) {
     while(i > 0) 
     {
       if (arreglo[i].priority > arreglo[padre=father(h, i)].priority){
-        Intercambia(h, i, padre);
+        intercambia(h, i, padre);
         i = padre;
       }
       else{
@@ -72,6 +72,8 @@ void heap_push(Heap* pq, void* data, int priority){
   if (pq->size == pq->capac){
     resizeHeap (pq);
   }
+
+  if (priority < 0 ) return;
 
   pq->heapArray[pq->size].priority = priority;
   pq->heapArray[pq->size].data = data;
