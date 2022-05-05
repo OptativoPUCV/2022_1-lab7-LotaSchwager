@@ -65,3 +65,9 @@ heap.c:26:1: error: control reaches end of non-void function [-Werror=return-typ
 cc1: all warnings being treated as errors
 Compilation failed
 958b1eb
+Thu May  5 01:03:22 UTC 2022: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+ tests:  1|3
+total_score: 10/70
+b1812da
