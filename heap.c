@@ -44,9 +44,6 @@ void heap_pop(Heap* pq){
   pq->size--;
 
   if (pq->heapArray[1].priority > pq->heapArray[2].priority){
-
-    if (pq->heapArray[0].priority > pq->heapArray[1].priority) return;
-
     void* data = pq->heapArray[0].data;
     int prioridad = pq->heapArray[0].priority;
 
@@ -56,10 +53,7 @@ void heap_pop(Heap* pq){
     pq->heapArray[1].priority = prioridad;
     pq->heapArray[1].data = data;
   }
-  else{
-
-    if (pq->heapArray[0].priority > pq->heapArray[2].priority) return;
-    
+  else{   
     void* data = pq->heapArray[0].data;
     int prioridad = pq->heapArray[0].priority;
 
