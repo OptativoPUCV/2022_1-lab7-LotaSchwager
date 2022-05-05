@@ -37,9 +37,9 @@ Heap* createHeap(){
 
   if (kurisu == NULL) return NULL;
 
-  kurisu->heapArray = (heapElem *) malloc (sizeof(heapElem));
   kurisu->size = 0;
   kurisu->capac = 3;
+  kurisu->heapArray = (heapElem *) malloc (sizeof(heapElem)*(kurisu->capac));
 
   if (kurisu->heapArray == NULL) return NULL;
 
