@@ -351,3 +351,40 @@ Thu May  5 03:48:14 UTC 2022:
  tests:  6|2
 total_score: 50/70
 3166b19
+Thu May  5 03:52:54 UTC 2022: 
+ heap.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+In file included from test.c:4:0:
+heap.c: In function ‘subir’:
+heap.c:37:20: error: ‘h’ undeclared (first use in this function)
+     while(i > 0 && h->heapArray[i].priority > h->heapArray[padre=father(i)].priority) {
+                    ^
+heap.c:37:20: note: each undeclared identifier is reported only once for each function it appears in
+heap.c:37:73: error: passing argument 1 of ‘father’ makes pointer from integer without a cast [-Werror=int-conversion]
+     while(i > 0 && h->heapArray[i].priority > h->heapArray[padre=father(i)].priority) {
+                                                                         ^
+heap.c:30:5: note: expected ‘Heap * {aka struct Heap *}’ but argument is of type ‘int’
+ int father(Heap* h, int i) {
+     ^~~~~~
+heap.c:37:66: error: too few arguments to function ‘father’
+     while(i > 0 && h->heapArray[i].priority > h->heapArray[padre=father(i)].priority) {
+                                                                  ^~~~~~
+heap.c:30:5: note: declared here
+ int father(Heap* h, int i) {
+     ^~~~~~
+heap.c: In function ‘heap_push’:
+heap.c:63:10: error: passing argument 1 of ‘subir’ makes integer from pointer without a cast [-Werror=int-conversion]
+   subir (pq, pq->size);
+          ^~
+heap.c:34:6: note: expected ‘int’ but argument is of type ‘Heap * {aka struct Heap *}’
+ void subir(int i) {
+      ^~~~~
+heap.c:63:3: error: too many arguments to function ‘subir’
+   subir (pq, pq->size);
+   ^~~~~
+heap.c:34:6: note: declared here
+ void subir(int i) {
+      ^~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+3880735
