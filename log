@@ -135,3 +135,13 @@ In file included from test.c:2:0:
              ^~~~
 Compilation failed
 01e2105
+Thu May  5 01:44:08 UTC 2022: 
+ heap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+In file included from test.c:4:0:
+heap.c: In function ‘heap_pop’:
+heap.c:42:29: error: incompatible types when assigning to type ‘heapElem {aka struct nodo}’ from type ‘void *’
+   pq->heapArray[pq->size-1] = NULL;
+                             ^
+Compilation failed
+8ccd1aa

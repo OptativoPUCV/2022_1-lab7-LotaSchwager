@@ -39,7 +39,7 @@ void heap_pop(Heap* pq){
 
   pq->heapArray[0].data = pq->heapArray[pq->size-1].data;
   pq->heapArray[0].priority = pq->heapArray[pq->size-1].priority;
-  free(pq->heapArray[pq->size-1]);
+  pq->heapArray[pq->size-1] = NULL;
   pq->size--;
 
   if (pq->heapArray[1].priority > pq->heapArray[2].priority){
